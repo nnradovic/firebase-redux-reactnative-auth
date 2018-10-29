@@ -15,4 +15,4 @@ Install on your phone Expo App.
 
 Start Expo App on your phone and just scan QR code from this link https://expo.io/@nnradovic/firebase-redux-redux-auth
 
-### Step 3.
+

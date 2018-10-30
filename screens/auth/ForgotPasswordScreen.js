@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import * as firebase from 'firebase'
 export default class ForgotPasswordScreen extends React.Component{
     constructor(props){
@@ -22,24 +22,54 @@ export default class ForgotPasswordScreen extends React.Component{
     render(){
         return(
             <View style={{paddingTop:50, alignItems:"center" }}>
-            <Text>Forgot Password</Text>
+            <Text style={{color:"red", fontSize:24, fontWeight:"bold"}}>Forgot Password</Text>
             <TextInput 
-                  style={{width:200, height:40, borderWidth:1}}
+                  style={{width:200, height:40,  borderWidth: 2, padding: 10,  borderRadius:5, borderColor:'red'}}
                   value={this.state.email}
                   onChangeText={(text) => { this.setState({email:text})}}
                   autoCapitalize="none"
                   autoCorrect={false}
                   placeholder="Insert your email"
+                  underlineColorAndroid='#fff'
+                  placeholderTextColor="#f7b7b7"
+                  tintColor={'red'}
                   
                   />
   
-           <Button title="Reset Password" onPress={this.onResetPasswordPress} />
-           <Button title="Back to login" onPress={this.onBackToLoginPress} />
+           
+           <TouchableOpacity
+                    onPress={this.onResetPasswordPress}
+                    style={styles.button}
+                >
+                <Text style={styles.buttonText}> Reset Password </Text>
+           </TouchableOpacity>
+           <TouchableOpacity
+                    onPress={this.onBackToLoginPress}
+                    style={styles.button}
+                >
+                <Text style={styles.buttonText}> Back to Login </Text>
+           </TouchableOpacity>
                   </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'red',
+        padding: 10,
+        width: '55%',
+        borderRadius: 5,
+        marginTop: 10
 
+
+    },
+    buttonText: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: 'bold',
+
+
+    }
 })
